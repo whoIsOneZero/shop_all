@@ -11,9 +11,14 @@ class CartIcon extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return const CartScreen();
-            }));
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const CartScreen();
+                },
+              ),
+            );
           },
           icon: const Icon(Icons.shopping_bag_outlined),
         ),
