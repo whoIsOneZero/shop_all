@@ -1,5 +1,7 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shop_all/models/product.dart';
+
+part 'products_provider.g.dart';
 
 const List<Product> allProducts = [
   Product(id: '1', title: 'Groovy Shorts', price: 12, image: 'assets/products/shorts.png'),
@@ -14,12 +16,14 @@ const List<Product> allProducts = [
 
 /// Provides this read-only values to whatever widget
 /// that wants to consume it
-final productsProvider = Provider((ref) {
-  return allProducts;
-});
+@riverpod
+List<Product> products(ref) {
+return allProducts;
+}
 
 /// Provides all products with prices less than 50
-final reducedProductsProvider = Provider((ref){
+@riverpod
+List<Product> reducedProducts(ref) {
   return allProducts.where((p) => p.price < 50 ).toList();
-});
+}
 
